@@ -1,0 +1,27 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  description: MyText
+  language: MyString
+  title: MyString
+  rating_count: 1
+  rating: 1.5
+  publication_date: 2022-05-20
+  dimension_x: 1.5
+  dimension_y: 1.5
+  dimension_z: 1.5
+  ages: MyString
+  format: one
+
+two:
+  description: MyText
+  language: MyString
+  title: MyString
+  rating_count: 1
+  rating: 1.5
+  publication_date: 2022-05-20
+  dimension_x: 1.5
+  dimension_y: 1.5
+  dimension_z: 1.5
+  ages: MyString
+  format: two
