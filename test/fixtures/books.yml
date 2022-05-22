@@ -7,11 +7,9 @@ one:
   rating_count: 1
   rating: 1.5
   publication_date: 2022-05-20
-  dimension_x: 1.5
-  dimension_y: 1.5
-  dimension_z: 1.5
   ages: MyString
-  format: one
+  format_id: 1
+  uuid: 1
 
 two:
   description: MyText
@@ -20,8 +18,6 @@ two:
   rating_count: 1
   rating: 1.5
   publication_date: 2022-05-20
-  dimension_x: 1.5
-  dimension_y: 1.5
-  dimension_z: 1.5
   ages: MyString
-  format: two
+  format_id: 2
+  uuid: 2

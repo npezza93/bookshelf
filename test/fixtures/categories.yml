@@ -2,8 +2,8 @@
 
 one:
   name: MyString
-  uuid: MyString
+  uuid: 1
 
 two:
   name: MyString
-  uuid: MyString
+  uuid: 2
