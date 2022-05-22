@@ -1,19 +1,27 @@
-<p style="color: green"><%= notice %></p>
+<div class="w-full flex flex-col items-center">
+  <div>
+    <% if notice.present? %>
+      <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
+    <% end %>
 
-<h1>Authors</h1>
+    <div class="flex justify-between items-center">
+      <h1 class="font-bold text-4xl">Authors</h1>
+    </div>
+  </div>
 
-<%= form_with url: authors_path, method: :get do |f| %>
-  <%= f.search_field :q, value: params[:q] %>
-  <%= f.submit "Search" %>
-<% end %>
+  <div class="flex flex-col items-center mb-[10px] w-full">
+    <%= form_with url: authors_path, method: :get, html: { class: "max-w-[600px] w-full" } do |f| %>
+      <%= f.search_field :q, value: params[:q], class: "w-full my-[5px]", placeholder: "Search...", autofocus: true %>
+    <% end %>
 
-<div id="authors">
-  <% @authors.each do |author| %>
-    <%= render author %>
-    <p>
-      <%= link_to "Show this author", author %>
-    </p>
-  <% end %>
+    <%= turbo_frame_tag "authors_#{@page&.number}", class: "max-w-[600px] w-full border-[1px] p-[10px]" do %>
+      <%= render @authors %>
+
+      <% if @page.present? %>
+        <%= turbo_frame_tag "authors_#{@page&.next_param}", class: "flex flex-col" do %>
+          <%= link_to "Next page", authors_path(page: @page.next_param), class: "mt-[5px] w-full text-center" %>
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
 </div>
-
-<%= link_to "New author", new_author_path %>

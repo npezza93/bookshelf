@@ -1,6 +1,7 @@
-<div id="<%= dom_id author %>">
-  <p>
-    <strong>Name:</strong>
-    <%= author.name %>
-  </p>
+<div id="<%= dom_id author %>" class="flex flex-row items-center justify-between">
+  <div class="text-lg"><%= author.name %></div>
+
+  <div class="text-sm"><%= author.books_count %> <%= "book".pluralize(author.books_count) %></div>
 </div>
+
+<hr>

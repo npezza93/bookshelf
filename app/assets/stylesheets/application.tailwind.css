@@ -1,0 +1,182 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.dragging .th:not(.dragging) {
+  @apply invisible relative;
+}
+.dragging .th:not(.dragging):before {
+  @apply absolute visible bg-blueGray-100 rounded;
+  content: " ";
+  width: 96%;
+  height: 88%;
+  top: 6%;
+  left: 2%;
+}
+
+.dragging .th.drop-selection:before {
+  @apply bg-blueGray-300;
+}
+
+.dark .dragging .th:not(.dragging):before {
+  @apply bg-trueGray-600;
+}
+
+.dark .dragging .th.drop-selection:before {
+  @apply bg-trueGray-700;
+}
+
+@font-face {
+  font-family: 'Belda Regular';
+  src: url('/beldanormregular-webfont.woff2') format('woff2'),
+       url('/beldanormregular-webfont.woff') format('woff'),
+       url('/beldanormregular-webfont.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Belda Book';
+  src: url('/beldanormbook-webfont.woff2') format('woff2'),
+       url('/beldanormbook-webfont.woff') format('woff'),
+       url('/beldanormbook-webfont.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Gotham Book';
+  src: url('/gothambook.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Gotham Book2';
+  src: url('/Gotham_Book_Regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.gotham-font {
+  font-family: "Gotham Book";
+}
+.gotham-font2 {
+  font-family: "Gotham Book2";
+}
+
+@layer utilities {
+  .offscreen {
+    top: -999em;
+    left: -999em;
+    position: absolute;
+  }
+
+  .belda-font {
+    font-family: "Belda Book";
+  }
+
+  .h-55vh {
+    height: 55vh;
+  }
+
+  .break-none {
+    word-break: keep-all;
+  }
+
+  @layer utilities {
+    .border-opacity-0 {
+      --tw-border-opacity: 0 !important;
+    }
+
+    .border-opacity-5 {
+      --tw-border-opacity: 0.05 !important;
+    }
+
+    .border-opacity-10 {
+      --tw-border-opacity: 0.1 !important;
+    }
+
+    .border-opacity-20 {
+      --tw-border-opacity: 0.2 !important;
+    }
+
+    .border-opacity-25 {
+      --tw-border-opacity: 0.25 !important;
+    }
+
+    .border-opacity-30 {
+      --tw-border-opacity: 0.3 !important;
+    }
+
+    .border-opacity-40 {
+      --tw-border-opacity: 0.4 !important;
+    }
+
+    .border-opacity-50 {
+      --tw-border-opacity: 0.5 !important;
+    }
+
+    .border-opacity-60 {
+      --tw-border-opacity: 0.6 !important;
+    }
+
+    .border-opacity-70 {
+      --tw-border-opacity: 0.7 !important;
+    }
+
+    .border-opacity-75 {
+      --tw-border-opacity: 0.75 !important;
+    }
+
+    .border-opacity-80 {
+      --tw-border-opacity: 0.8 !important;
+    }
+
+    .border-opacity-90 {
+      --tw-border-opacity: 0.9 !important;
+    }
+
+    .border-opacity-95 {
+      --tw-border-opacity: 0.95 !important;
+    }
+
+    .border-opacity-100 {
+      --tw-border-opacity: 1 !important;
+    }
+  }
+
+  @layer utilities {
+    .pattern-3-bg {
+      background-image: url('/pattern_3.png');
+    }
+
+    .pattern-1b-bg {
+      background-image: url('/pattern_1b.png');
+    }
+  }
+}
+
+.peer-checkbox:checked + label {
+  @apply text-blue-400;
+  @apply dark:text-blue-300;
+}
+.peer-checkbox:checked + label .text {
+  @apply text-blue-400;
+  @apply dark:text-blue-300;
+}
+.peer-checkbox:checked + label svg {
+  visibility: visible;
+}
+
+.turbo-progress-bar {
+  @apply dark:bg-dtheme-gold;
+}
+
+[data-controller="autocomplete"] [aria-selected="true"] {
+ @apply bg-blueGray-100;
+ @apply dark:bg-trueGray-600;
+}
+
+.highcharts-tooltip {
+  display: none;
+}

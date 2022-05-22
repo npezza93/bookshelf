@@ -1,10 +1,25 @@
-<p style="color: green"><%= notice %></p>
+<div class="w-full flex flex-col items-center">
+  <div>
+    <% if notice.present? %>
+      <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
+    <% end %>
 
-<%= render @book %>
-
-<div>
-  <%= link_to "Edit this book", edit_book_path(@book) %> |
-  <%= link_to "Back to books", books_path %>
-
-  <%= button_to "Destroy this book", @book, method: :delete %>
+    <div class="flex w-[1200px] gap-[30px]">
+      <img src="<%= @book.image_url %>" class="w-[300px]">
+      <div class="flex flex-col gap-[10px]">
+        <h1 class="font-bold text-4xl"><%= @book.title %></h1>
+        <h2 class="text-2xl">By: <%= @book.authors.map(&:name).join(", ") %></h1>
+        <p><%= @book.description %></p>
+        <p>Categories: <%= @book.categories.map(&:name).join(" | ") %></p>
+        <hr>
+        <p>Published on: <%= @book.publication_date.to_formatted_s(:long) %></p>
+        <div class="flex flex-row gap-[5px]">
+          <% [@book.format&.name, @book.language, @book.ages].reject(&:blank?).each do |attr| %>
+            <p><%= attr %></p>
+            |
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

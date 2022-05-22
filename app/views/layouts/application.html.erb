@@ -5,12 +5,19 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
 
   <body>
+    <header class="flex flex-row justify-center gap-[15px] mb-[30px]">
+      <%= link_to "Books", books_path, class: "border-b" %>
+      <%= link_to "Authors", authors_path, class: "border-b" %>
+      <%= link_to "Categories", categories_path, class: "border-b" %>
+      <%= link_to "Formats", formats_path, class: "border-b" %>
+    </header>
     <%= yield %>
   </body>
 </html>

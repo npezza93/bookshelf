@@ -1,14 +1,17 @@
-<p style="color: green"><%= notice %></p>
+<div class="w-full flex flex-col items-center">
+  <div>
+    <% if notice.present? %>
+      <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
+    <% end %>
 
-<h1>Formats</h1>
+    <div class="flex justify-between items-center">
+      <h1 class="font-bold text-4xl">Formats</h1>
+    </div>
+  </div>
 
-<div id="formats">
-  <% @formats.each do |format| %>
-    <%= render format %>
-    <p>
-      <%= link_to "Show this format", format %>
-    </p>
-  <% end %>
+  <div class="flex flex-col items-center mb-[10px] w-full">
+    <div class="max-w-[600px] w-full border-[1px] p-[10px]">
+      <%= render @formats %>
+    </div>
+  </div>
 </div>
-
-<%= link_to "New format", new_format_path %>
