@@ -1,0 +1,19 @@
+<%= turbo_frame_tag "books_#{page}", class: "flex flex-wrap flex-row justify-center gap-[10px]", data: { turbo_action: :replace } do %>
+  <% books.each do |book| %>
+    <%= link_to book, data: { turbo_frame: :_top } do %>
+      <div class="flex flex-col items-center justify-between w-[150px]">
+        <img src="<%= book.image_url %>" class="w-[100px]">
+        <div class="flex flex-row text-center">
+          <%= book.title %>
+        </div>
+        <div class="text-sm text-center mt-[10px]">By: <%= book.authors.map(&:name).join(", ") %></div>
+      </div>
+    <% end %>
+  <% end %>
+
+  <%= turbo_stream.append "books" do %>
+    <%= turbo_frame_tag "books_#{page + 2}", class: "flex flex-wrap flex-row justify-center gap-[10px]", src: books_path(page: page + 2), loading: :lazy, data: { turbo_action: :replace } %>
+  <% end %>
+<% end %>
+
+<%= turbo_frame_tag "books_#{page + 1}", class: "flex flex-wrap flex-row justify-center gap-[10px]", src: books_path(page: page + 1), loading: :lazy, data: { turbo_action: :replace } %>
