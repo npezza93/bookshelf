@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class="dark">
   <head>
     <title>Bookshelf</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -11,7 +11,7 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
+  <body class="bg-trueGray-100 dark:bg-trueGray-800 text-trueGray-900 dark:text-trueGray-300">
     <header class="flex flex-row justify-center gap-[15px] mb-[30px]">
       <%= link_to "Books", books_path, class: "border-b" %>
       <%= link_to "Authors", authors_path, class: "border-b" %>

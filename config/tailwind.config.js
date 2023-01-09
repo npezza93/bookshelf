@@ -32,6 +32,7 @@ const myColors = {
 
 module.exports = {
   mode: 'jit',
+  darkMode: 'class',
   content: [
     './app/views/**/*.html.erb',
     './app/javascript/**/*.js'

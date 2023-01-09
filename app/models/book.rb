@@ -15,14 +15,14 @@ class Book < ApplicationRecord
     text_field :title, phonetic: "dm:en"
     numeric_field :rating_count, sortable: true
     numeric_field :rating, sortable: true
-    text_field :ages
+    text_field :ages, sortable: true
     tag_field :categories, separator: "|" do
       categories.map(&:name)
     end
     tag_field :authors, separator: "|" do
       authors.map(&:name)
     end
-    text_field :format do
+    text_field :format, sortable: true do
       format&.name
     end
   end

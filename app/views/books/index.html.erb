@@ -4,18 +4,41 @@
       <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
     <% end %>
 
-    <div class="flex justify-between items-center">
+    <div class="flex justify-between items-center mb-[30px]">
       <h1 class="font-bold text-4xl">Books</h1>
     </div>
   </div>
 
-  <div class="flex flex-col items-center mb-[10px] w-full max-w-[1200px]">
-    <%= form_with url: books_path, method: :get, html: { class: "max-w-[600px] w-full" } do |f| %>
-      <%= f.search_field :q, value: params[:q], class: "w-full my-[5px]", placeholder: "Search...", autofocus: true %>
-    <% end %>
+  <div class="flex flex-row justify-center mb-[10px] w-full max-w-[1200px]">
+    <aside class="w-[250px]">
+      <%= form_with url: books_path, method: :get, html: { class: "max-w-[600px] w-full flex flex-col" } do |f| %>
+        <%= f.search_field :q, value: params[:q], class: "w-full my-[5px] bg-trueGray-100 dark:bg-trueGray-800 border-solid border-[1px] dark:border-trueGray-300 border-trueGray-900", placeholder: "Search...", autofocus: true %>
 
-    <div class="flex flex-wrap flex-row justify-center gap-[10px]" id="books">
-      <%= render "page", books: @books, page: @page&.number %>
+        <details open class="mt-[30px]">
+          <summary class="flex items-center">
+            <h3 class="font-bold">Formats</h3>
+          </summary>
+
+          <div class="h-[250px] overflow-auto">
+            <%= f.collection_check_boxes :format, Format.all, :name, :name, { checked: params[:format] }, class: "bg-trueGray-100 dark:bg-trueGray-800 border-solid border-[1px] dark:border-trueGray-300 border-trueGray-900" do |b| %>
+              <%= b.label do %>
+                <div class="flex flex-row items-center gap-[10px]">
+                  <div><%= b.check_box %></div>
+                  <div><%= b.text %></div>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
+        </details>
+
+        <%= f.submit "Search", class: "mt-[30px] py-[8px] border-solid border-[1px] dark:border-trueGray-300 border-trueGray-900 cursor-pointer dark:hover:bg-trueGray-300 dark:hover:text-trueGray-900 hover:bg-trueGray-800 hover:text-trueGray-300" %>
+      <% end %>
+    </aside>
+
+    <div>
+      <div class="flex flex-wrap flex-row justify-center gap-[10px] w-[925px]" id="books">
+      </div>
+      <%= render "page", books: @books, page: @page %>
     </div>
   </div>
 </div>

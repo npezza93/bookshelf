@@ -3,19 +3,18 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "~> 3.1"
+ruby "~> 3.2"
 
 gem "geared_pagination"
-gem "puma", "~> 5.0"
-gem "rails", "~> 7.0.3"
-gem "redis", "~> 4.0"
-gem "redi_search"
-gem "sprockets-rails"
-gem "sqlite3", "~> 1.4"
-gem "tailwindcss-rails"
-
 gem "importmap-rails"
+gem "propshaft"
+gem "puma", "~> 5.0"
+gem "rails"
+gem "redis"
+gem "redi_search"
+gem "sqlite3"
 gem "stimulus-rails"
+gem "tailwindcss-rails"
 gem "turbo-rails"
 
 gem "bootsnap", require: false
